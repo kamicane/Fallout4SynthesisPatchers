@@ -1,0 +1,13 @@
+{
+  "Nickname": "",
+  "Visibility": "Visible",
+  "OneLineDescription": "Immersive Pickup sounds without the cruft",
+  "LongDescription": "Check the full description on GitHub",
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": [
+    "Immersive Pickup Sounds F04.esp"
+  ],
+  "TargetedReleases": [
+    "Fallout4"
+  ]
+}

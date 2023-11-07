@@ -1,0 +1,55 @@
+# 7.62mm
+DLC04_Ammo_HandmadeRound: 35
+DLC04_COM_Ammo_HandmadeRound: 35
+
+# .45-70
+DLC03_Ammo4570: 45
+DLC03_CompAmmo4570: 45
+
+# .50
+Ammo50Caliber: 120
+
+# .38
+Ammo38Caliber: 18
+DLC03WorkshopTeammate_Ammo38Caliber: 18
+
+# .44
+Ammo44: 55
+
+# .45
+Ammo45Caliber: 22
+CompanionAmmo45Caliber: 22
+
+# .308
+Ammo308Caliber: 40
+CompanionAmmo308Caliber: 40
+
+# 5.56mm
+Ammo556: 32
+
+# 5mm
+Ammo5mm: 22
+Ammo5mm_NonPlayable: 22
+
+# 10mm
+Ammo10mm: 27
+CompanionAmmo10mm: 27
+
+# Shell
+AmmoShotgunShell: 120
+CompanionAmmoShotgunShell: 120
+
+# Junk
+AmmoJunkJet: 65
+
+# Cannonball
+AmmoCannonBall: 150
+
+# Spike
+AmmoRRSpike: 120
+
+# Flare
+AmmoFlareGun: 33
+
+# 2mm EC
+Ammo2mmEC: 120

@@ -1,0 +1,11 @@
+{
+  "Nickname": "CleanESL",
+  "Visibility": "Visible",
+  "OneLineDescription": "Empties the current PatchFile and flags it as ESL",
+  "LongDescription": "Add it before everything else",
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": [],
+  "TargetedReleases": [
+    "Fallout4"
+  ]
+}

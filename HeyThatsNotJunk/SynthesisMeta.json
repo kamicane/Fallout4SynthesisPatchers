@@ -1,0 +1,11 @@
+{
+  "Nickname": "HeyThatsNotJunk",
+  "Visibility": "Visible",
+  "OneLineDescription": "Removes components from selected misc items to make them unscrappable",
+  "LongDescription": "Check the full description on GitHub",
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": [],
+  "TargetedReleases": [
+    "Fallout4"
+  ]
+}

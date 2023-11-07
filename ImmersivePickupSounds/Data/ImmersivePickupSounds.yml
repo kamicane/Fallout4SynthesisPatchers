@@ -1,0 +1,840 @@
+AbraxoCleaner:
+  PickUpSound: PlayerPickupAbraxo
+AbraxoCleaner_PreWar:
+  PickUpSound: PlayerPickupAbraxo
+AbraxoCleaner_Rare:
+  PickUpSound: PlayerPickupAbraxo
+AlarmClock:
+  PickUpSound: PlayerPickupMisc
+AlarmClock_Rare:
+  PickUpSound: PlayerPickupMisc
+AntiFreeze:
+  PickUpSound: PlayerPickupGasCan
+AntiFreeze_Rare:
+  PickUpSound: PlayerPickupGasCan
+Ashtray01:
+  PickUpSound: PlayerPickupAshtray
+Ashtray01_Filled:
+  PickUpSound: PlayerPickupAshtray
+Ashtray_PreWar:
+  PickUpSound: PlayerPickupAshtray
+AutoPart01:
+  PickUpSound: PlayerPickupScrapMetal
+AutoPart02:
+  PickUpSound: PlayerPickupScrapMetal
+AutoPart03:
+  PickUpSound: PlayerPickupScrapMetal
+AutoPart04:
+  PickUpSound: PlayerPickupScrapMetal
+AutoPartChromeCoolantCap01:
+  PickUpSound: PlayerPickupScrapMetal
+AutomotiveHubCap01:
+  PickUpSound: PlayerPickupScrapMetal
+BabyBottleDirty01:
+  PickUpSound: PlayerPickupScrapPlastic
+BabyBottleDirty02:
+  PickUpSound: PlayerPickupScrapPlastic
+Beaker:
+  PickUpSound: PlayerPickupGlassCup
+Beaker02:
+  PickUpSound: PlayerPickupGlassCup
+Beaker_Stand:
+  PickUpSound: PlayerPickupMiscMetallic
+BeerBottleEmpty01:
+  PickUpSound: PlayerPickupBottleEmpty
+BeerGlassGwinnett01:
+  PickUpSound: PlayerPickupBottleEmpty
+BeerGwinnettAleEmpty01:
+  PickUpSound: PlayerPickupBottleEmpty
+BeerGwinnettBrewEmpty01:
+  PickUpSound: PlayerPickupBottleEmpty
+BeerGwinnettLagerEmpty01:
+  PickUpSound: PlayerPickupBottleEmpty
+BeerGwinnettPaleEmpty01:
+  PickUpSound: PlayerPickupBottleEmpty
+BeerGwinnettPilsEmpty01:
+  PickUpSound: PlayerPickupBottleEmpty
+BeerGwinnettStoutEmpty01:
+  PickUpSound: PlayerPickupBottleEmpty
+BigPot:
+  PickUpSound: PlayerPickupPot
+BiometricScanner:
+  PickUpSound: PlayerPickupScrapElectronics
+BloodPack_Empty:
+  PickUpSound: PlayerPickupBloodPack
+BoardGame01:
+  PickUpSound: PlayerPickupMisc
+BobbyPin:
+  PickUpSound: PlayerPickupBobbyPin
+Bonesaw:
+  PickUpSound: PlayerPickupSaw
+BookBurnt01:
+  PickUpSound: PlayerPickupBooks
+BookBurnt02:
+  PickUpSound: PlayerPickupBooks
+BottleEmpty01:
+  PickUpSound: PlayerPickupBottleEmpty
+BottleEmpty02:
+  PickUpSound: PlayerPickupBottleEmpty
+BottleEmpty03:
+  PickUpSound: PlayerPickupBottleEmpty
+BottleEmpty04:
+  PickUpSound: PlayerPickupBottleEmpty
+BottleEmptyBourbon01:
+  PickUpSound: PlayerPickupBottleEmpty
+BottleEmptyRum01:
+  PickUpSound: PlayerPickupBottleEmpty
+BottleEmptyVodka01:
+  PickUpSound: PlayerPickupBottleEmpty
+BottleEmptyWhiskey01:
+  PickUpSound: PlayerPickupBottleEmpty
+BottleEmptyWine01:
+  PickUpSound: PlayerPickupBottleEmpty
+BottleEmptyWineAmontillado:
+  PickUpSound: PlayerPickupBottleEmpty
+Bowl_01_Plastic:
+  PickUpSound: PlayerPickupScrapPlastic
+Broom01:
+  PickUpSound: PlayerPickupBroom
+Broom01_PreWar:
+  PickUpSound: PlayerPickupBroom
+BunsenBurner:
+  PickUpSound: PlayerPickupMiscMetallic
+CafeteriaTray:
+  PickUpSound: PlayerPickupMiscMetallic
+CakePan01:
+  PickUpSound: PlayerPickupMiscMetallic
+Camera:
+  PickUpSound: PlayerPickupCamera
+Camera_Clean:
+  PickUpSound: PlayerPickupCamera
+Camera_Rare:
+  PickUpSound: PlayerPickupCamera
+CatBowl:
+  PickUpSound: PlayerPickupMisc
+CementBag:
+  PickUpSound: PlayerPickupMisc
+Chalk01:
+  PickUpSound: PlayerPickupMisc
+ChargeCard:
+  PickUpSound: PlayerPickupKeyCard
+ChemistrySetBeaker01:
+  PickUpSound: PlayerPickupBottleEmpty
+ChemistrySetBeaker02:
+  PickUpSound: PlayerPickupBottleEmpty
+ChemistrySetBeaker03:
+  PickUpSound: PlayerPickupBottleEmpty
+ChemistrySetBeaker04:
+  PickUpSound: PlayerPickupBottleEmpty
+ChemistrySetBottle01:
+  PickUpSound: PlayerPickupBottleEmpty
+ChemistrySetCan01:
+  PickUpSound: PlayerPickupGasCan
+ChemistrySetCan02:
+  PickUpSound: PlayerPickupGasCan
+ChemistrySetCan03:
+  PickUpSound: PlayerPickupGasCan
+Chessboard:
+  PickUpSound: PlayerPickupMisc
+ChipBoard_Chip:
+  PickUpSound: PlayerPickupScrapElectronics
+CigarBox:
+  PickUpSound: PlayerPickupMisc
+CigarBoxSanFran:
+  PickUpSound: PlayerPickupMisc
+CigaretteCarton:
+  PickUpSound: PlayerPickupMisc
+CigaretteCarton_PreWar:
+  PickUpSound: PlayerPickupMisc
+CigarettePack:
+  PickUpSound: PlayerPickupMisc
+CigarettePack_PreWar:
+  PickUpSound: PlayerPickupMisc
+CircuitBoardMilitary:
+  PickUpSound: PlayerPickupScrapElectronics
+Clipboard01:
+  PickUpSound: PlayerPickupMisc
+Clipboard_Prewar01:
+  PickUpSound: PlayerPickupMisc
+ClothesHanger01:
+  PickUpSound: PlayerPickupMisc
+ClothingIron:
+  PickUpSound: PlayerPickupMiscMetallic
+CoffeeCup01:
+  PickUpSound: PlayerPickupCoffeCup
+CoffeeCup01clean:
+  PickUpSound: PlayerPickupCoffeCup
+CoffeePot01:
+  PickUpSound: PlayerPickupCoffeePot
+CoffeePot01_Rare:
+  PickUpSound: PlayerPickupCoffeePot
+CoffeePot01clean:
+  PickUpSound: PlayerPickupCoffeePot
+Collander:
+  PickUpSound: PlayerPickupMiscMetallic
+ComicBurnt01:
+  PickUpSound: PlayerPickupBooks
+ComicBurnt02:
+  PickUpSound: PlayerPickupBooks
+ComicBurnt03:
+  PickUpSound: PlayerPickupBooks
+CookingOil:
+  PickUpSound: PlayerPickupGasCan
+CookingPan01:
+  PickUpSound: PlayerPickupPressureCooker
+CookingPot01:
+  PickUpSound: PlayerPickupPressureCooker
+Coolant01:
+  PickUpSound: PlayerPickupGasCan
+Coolant_Empty01:
+  PickUpSound: PlayerPickupScrapPlastic
+CuttingBoard:
+  PickUpSound: PlayerPickupMisc
+DN070_BurntBook01b:
+  PickUpSound: PlayerPickupBooks
+DN070_BurntBook02:
+  PickUpSound: PlayerPickupBooks
+DN070_BurntBook02b:
+  PickUpSound: PlayerPickupBooks
+DN070_Camera:
+  PickUpSound: PlayerPickupCamera
+DN070_JanitorIDCard:
+  PickUpSound: PlayerPickupKeyCard
+DN070_MayorIDCard:
+  PickUpSound: PlayerPickupKeyCard
+DN070_Pencil:
+  PickUpSound: PlayerPickupPencil
+DN081_FishTray01:
+  PickUpSound: PlayerPickupMiscMetallic
+DN084_ExecutiveIDCard:
+  PickUpSound: PlayerPickupKeyCard
+DN102_HalluciGenGasCanister:
+  PickUpSound: PlayerPickupGasCan
+DN102_HalluciGenGasCanisterRuptured:
+  PickUpSound: PlayerPickupMiscMetallic
+DN143AdminAccessCard:
+  PickUpSound: PlayerPickupKeyCard
+DN143LabAccessCard:
+  PickUpSound: PlayerPickupKeyCard
+DN154_AtomatoysID:
+  PickUpSound: PlayerPickupKeyCard
+DN165_AirportEmployeeIDCard:
+  PickUpSound: PlayerPickupKeyCard
+DeskFanOffice01:
+  PickUpSound: PlayerPickupMiscMetallic
+DeskFanOfficeOff01:
+  PickUpSound: PlayerPickupMiscMetallic
+DishRag01:
+  PickUpSound: PlayerPickupMisc
+DogBowl:
+  PickUpSound: PlayerPickupMisc
+DogBowl_PreWar:
+  PickUpSound: PlayerPickupMisc
+DrinkingGlass01CleanShortMisc:
+  PickUpSound: PlayerPickupGlassCup
+DrinkingGlass01CleanTallMisc:
+  PickUpSound: PlayerPickupGlassCup
+DuctTape01:
+  PickUpSound: PlayerPickupDuctTape
+DuctTape01_Rare:
+  PickUpSound: PlayerPickupDuctTape
+DuctTapeMilitary:
+  PickUpSound: PlayerPickupDuctTape
+EnamelBucket01:
+  PickUpSound: PlayerPickupPaintCan
+EnamelBucket01_PreWar:
+  PickUpSound: PlayerPickupPaintCan
+FeatherDuster:
+  PickUpSound: PlayerPickupMisc
+Fertilizer:
+  PickUpSound: PlayerPickupMisc
+FireExtinguisher01:
+  PickUpSound: PlayerPickupMiscMetallic
+FishingRod:
+  PickUpSound: PlayerPickupBroom
+Flag_American_TrifoldBox:
+  PickUpSound: PlayerPickupMisc
+Flag_American_TrifoldBox_PreWar:
+  PickUpSound: PlayerPickupMisc
+FlightDataRecorder:
+  PickUpSound: PlayerPickupScrapElectronics
+FolderPapers01:
+  PickUpSound: PlayerPickupBooks
+FolderPapers02:
+  PickUpSound: PlayerPickupBooks
+Fork_01_Plastic:
+  PickUpSound: PlayerPickupScrapPlastic
+Fork_02_StainlessSteel:
+  PickUpSound: PlayerPickupCutlery
+Fork_02_StainlessSteel_Prewar:
+  PickUpSound: PlayerPickupCutlery
+Fork_03_Silver:
+  PickUpSound: PlayerPickupCutlery
+Fuse:
+  PickUpSound: PlayerPickupScrapElectronics
+FusionPulseCharge:
+  PickUpSound: PlayerPickupScrapElectronics
+GasCanister:
+  PickUpSound: PlayerPickupGasCan
+GenCanister01:
+  PickUpSound: PlayerPickupGasCan
+GenCanister02:
+  PickUpSound: PlayerPickupGasCan
+GenCanister03:
+  PickUpSound: PlayerPickupGasCan
+GenCanister04:
+  PickUpSound: PlayerPickupGasCan
+GenCanister05:
+  PickUpSound: PlayerPickupGasCan
+GenCanister06:
+  PickUpSound: PlayerPickupGasCan
+GiddyupButtercup:
+  PickUpSound: PlayerPickupMiscMetallic
+GiddyupButtercupBLeg:
+  PickUpSound: PlayerPickupMiscMetallic
+GiddyupButtercupBody:
+  PickUpSound: PlayerPickupMiscMetallic
+GiddyupButtercupFLeg:
+  PickUpSound: PlayerPickupMiscMetallic
+GiddyupButtercupHead:
+  PickUpSound: PlayerPickupMiscMetallic
+GlassPitcher01:
+  PickUpSound: PlayerPickupGlassPitcher
+GlassTtube:
+  PickUpSound: PlayerPickupGlassCup
+Glass_Generic:
+  PickUpSound: PlayerPickupGlassCup
+Glass_Generic_Prewar:
+  PickUpSound: PlayerPickupGlassCup
+Globe01:
+  PickUpSound: PlayerPickupMisc
+Globe_02_clean:
+  PickUpSound: PlayerPickupMisc
+Globe_02_ruined:
+  PickUpSound: PlayerPickupMisc
+Hairbrush_01:
+  PickUpSound: PlayerPickupMisc
+Hairbrush_02_Silver:
+  PickUpSound: PlayerPickupMisc
+Handcuffs:
+  PickUpSound: PlayerPickupHandcuff
+HighPoweredMagnet:
+  PickUpSound: PlayerPickupScrapElectronics
+Hoe:
+  PickUpSound: PlayerPickupScrapMetal
+HotPlate:
+  PickUpSound: PlayerPickupScrapMetal
+IVBag:
+  PickUpSound: PlayerPickupBloodPack
+InsDishLargeClean01:
+  PickUpSound: PlayerPickupMisc
+InsDishLargeClean03:
+  PickUpSound: PlayerPickupMisc
+InsDishSmallClean03:
+  PickUpSound: PlayerPickupMisc
+InsMicroscope01:
+  PickUpSound: PlayerPickupMiscMetallic
+Institute_Applicator01:
+  PickUpSound: PlayerPickupMiscMetallic
+Institute_Cauterizer01:
+  PickUpSound: PlayerPickupMiscMetallic
+Institute_Driver01:
+  PickUpSound: PlayerPickupScrapElectronics
+Institute_Examiner:
+  PickUpSound: PlayerPickupScrapMetal
+Institute_Recorder:
+  PickUpSound: PlayerPickupScrapElectronics
+Institute_Sensor01:
+  PickUpSound: PlayerPickupScrapElectronics
+Institute_Spanner01:
+  PickUpSound: PlayerPickupScrapMetal
+Institute_TriTool01:
+  PickUpSound: PlayerPickupScrapMetal
+Institute_Tweezers:
+  PickUpSound: PlayerPickupScissors
+Jangles01:
+  PickUpSound: PlayerPickupMisc
+KitchenScale:
+  PickUpSound: PlayerPickupScrapMetal
+KitchenShorteningRare:
+  PickUpSound: PlayerPickupScrapMetal
+Knife_02_StainlessSteel:
+  PickUpSound: PlayerPickupCutlery
+Knife_03_Silver:
+  PickUpSound: PlayerPickupCutlery
+Knife_Generic_Prewar:
+  PickUpSound: PlayerPickupCutlery
+LabBeaker:
+  PickUpSound: PlayerPickupGlassCup
+LabTtube01:
+  PickUpSound: PlayerPickupTubing
+Ladle:
+  PickUpSound: PlayerPickupMiscMetallic
+LifePreserver01:
+  PickUpSound: PlayerPickupMisc
+Lightbulb:
+  PickUpSound: PlayerPickupMisc
+Lightbulb_Broken:
+  PickUpSound: PlayerPickupMisc
+Lighter:
+  PickUpSound: PlayerPickupMiscMetallic
+LighterGoldPlated:
+  PickUpSound: PlayerPickupMiscMetallic
+Lighter_PreWar:
+  PickUpSound: PlayerPickupMiscMetallic
+LiquorDecanter:
+  PickUpSound: PlayerPickupBottleEmpty
+MS07GoldBar:
+  PickUpSound: PlayerPickupScrapMetal
+MS07SilverBar:
+  PickUpSound: PlayerPickupScrapMetal
+MagazineBurnt01:
+  PickUpSound: PlayerPickupBooks
+MagazineBurnt02:
+  PickUpSound: PlayerPickupBooks
+MagazineBurnt03:
+  PickUpSound: PlayerPickupBooks
+MagnifyingGlass:
+  PickUpSound: PlayerPickupMisc
+MakeshiftBattery01:
+  PickUpSound: PlayerPickupBattery
+MedicalLiquidNitrogenGun:
+  PickUpSound: PlayerPickupGasCan
+MetalBucket:
+  PickUpSound: PlayerPickupMetalPot
+MetalBucket_PreWar:
+  PickUpSound: PlayerPickupMetalPot
+Microscope:
+  PickUpSound: PlayerPickupScrapMetal
+MilitaryAmmoBag:
+  PickUpSound: PlayerPickupMisc
+MilitaryDogTags:
+  PickUpSound: PlayerPickupKeys
+MilkBottleEmpty:
+  PickUpSound: PlayerPickupBottleEmpty
+Mop:
+  PickUpSound: PlayerPickupBroom
+MrHandyFuel:
+  PickUpSound: PlayerPickupGasCan
+NapkinClean:
+  PickUpSound: PlayerPickupMisc
+Newspaper:
+  PickUpSound: PlayerPickupBooks
+Newspaper01:
+  PickUpSound: PlayerPickupBooks
+NewspaperPrewar01:
+  PickUpSound: PlayerPickupBooks
+NukaColaEmpty:
+  PickUpSound: PlayerPickupBottleEmpty
+OilCan01:
+  PickUpSound: PlayerPickupGasCan
+OilCan01_PreWar:
+  PickUpSound: PlayerPickupGasCan
+OilCan01_Rare:
+  PickUpSound: PlayerPickupGasCan
+OilLamp_Off:
+  PickUpSound: PlayerPickupMiscMetallic
+OvenMitt:
+  PickUpSound: PlayerPickupMisc
+OvenMittClean:
+  PickUpSound: PlayerPickupMisc
+OverdueBook:
+  PickUpSound: PlayerPickupBooks
+PaintCanBlood:
+  PickUpSound: PlayerPickupPainCanFull
+PaintCanBlue:
+  PickUpSound: PlayerPickupPainCanFull
+PaintCanEmpty:
+  PickUpSound: PlayerPickupPaintCan
+PaintCanFull:
+  PickUpSound: PlayerPickupPainCanFull
+PaintCanYellow:
+  PickUpSound: PlayerPickupPainCanFull
+Paintbrush_01:
+  PickUpSound: PlayerPickupMisc
+Pen01:
+  PickUpSound: PlayerPickupScrapPlastic
+Pencil:
+  PickUpSound: PlayerPickupPencil
+PictureFrameDesktop01dirty:
+  PickUpSound: PlayerPickupMisc
+PictureFrameDesktop02dirty:
+  PickUpSound: PlayerPickupMisc
+PictureFrameDesktop03dirty:
+  PickUpSound: PlayerPickupMisc
+Pillow_01_Straw:
+  PickUpSound: PlayerPickupMisc
+Pillow_02_Comfy:
+  PickUpSound: PlayerPickupMisc
+PlasticPumpkin:
+  PickUpSound: PlayerPickupScrapPlastic
+PlateCeramic01_Red_Dirty:
+  PickUpSound: PlayerPickupMisc
+PlateCeramic01_White_Dirty:
+  PickUpSound: PlayerPickupPlates
+PlateCeramic01_Yellow_Dirty:
+  PickUpSound: PlayerPickupPlates
+PlateCeramic02_Red_Clean:
+  PickUpSound: PlayerPickupPlates
+PlateCeramic02_White_Clean:
+  PickUpSound: PlayerPickupPlates
+PlateCeramic02_Yellow_Clean:
+  PickUpSound: PlayerPickupPlates
+Plate_01_Plastic:
+  PickUpSound: PlayerPickupScrapPlastic
+Plate_02_Dinner:
+  PickUpSound: PlayerPickupPlates
+Plate_02_DinnerClean:
+  PickUpSound: PlayerPickupPlates
+Plate_03_Silver:
+  PickUpSound: PlayerPickupPlates
+PlayerHouse_CoffeeTin01:
+  PickUpSound: PlayerPickupTinCan
+PlayerHouse_Ruin_BabyBook01:
+  PickUpSound: PlayerPickupBooks
+PlayerHouse_Ruin_CoffeeTin01:
+  PickUpSound: PlayerPickupTinCan
+PlayerHouse_Ruin_PotsFryingPan01:
+  PickUpSound: PlayerPickupMetalPot
+PlayerHouse_Ruin_PotsSauceLarge01:
+  PickUpSound: PlayerPickupPot
+PlayerHouse_Ruin_PotsSauceLarge01Lid:
+  PickUpSound: PlayerPickupMetalPot
+PlayerHouse_Ruin_PotsSauceLarge02:
+  PickUpSound: PlayerPickupMetalPot
+PlayerHouse_Ruin_PotsSauceSmall01:
+  PickUpSound: PlayerPickupMetalPot
+PlayerHouse_Ruin_PotsSauceSmall01Lid:
+  PickUpSound: PlayerPickupMetalPot
+PlayerHouse_Ruin_PotsSauceSmall02:
+  PickUpSound: PlayerPickupMetalPot
+PlayerHouse_Ruin_SaltShaker01:
+  PickUpSound: PlayerPickupMisc
+PlayerHouse_Ruin_TeaKettle01:
+  PickUpSound: PlayerPickupMiscMetallic
+PlayerHouse_Ruin_Umbrella01:
+  PickUpSound: PlayerPickupMisc
+PlayerHouse_Ruin_UmbrellaStand01:
+  PickUpSound: PlayerPickupMisc
+PlayerHouse_Umbrella01:
+  PickUpSound: PlayerPickupMisc
+PlayerHouse_UmbrellaStand01:
+  PickUpSound: PlayerPickupMisc
+Plunger:
+  PickUpSound: PlayerPickupMisc
+PoolBall01:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall02:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall03:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall04:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall05:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall06:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall07:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall08:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall09:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall10:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall11:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall12:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall13:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall14:
+  PickUpSound: PlayerPickupPoolBall
+PoolBall15:
+  PickUpSound: PlayerPickupPoolBall
+PoolBallCue:
+  PickUpSound: PlayerPickupPoolBall
+PoolTriangle:
+  PickUpSound: PlayerPickupScrapPlastic
+PowerRelayCoil:
+  PickUpSound: PlayerPickupConductor
+PrewarBottleBourbon01:
+  PickUpSound: PlayerPickupBottleEmpty
+PrewarBottleWhiskeyEmpty01:
+  PickUpSound: PlayerPickupBottleEmpty
+PrewarDeskFanOffice01:
+  PickUpSound: PlayerPickupScrapMetal
+PrewarMoney:
+  PickUpSound: PlayerPickupMisc
+PrewarTincan01:
+  PickUpSound: PlayerPickupTinCan
+RatPoison:
+  PickUpSound: PlayerPickupTinCan
+RingStand:
+  PickUpSound: PlayerPickupMiscMetallic
+Scalpel:
+  PickUpSound: PlayerPickupMiscMetallic
+Scissors:
+  PickUpSound: PlayerPickupScissors
+SensorModule:
+  PickUpSound: PlayerPickupMiscMetallic
+ShoppingBasket:
+  PickUpSound: PlayerPickupMiscMetallic
+ShotGlass01:
+  PickUpSound: PlayerPickupShotGlass
+Shovel01:
+  PickUpSound: PlayerPickupScrapMetal
+SilverLocket:
+  PickUpSound: PlayerPickupMiscMetallic
+SmithingToolSaw01:
+  PickUpSound: PlayerPickupSaw
+SmithingToolSaw02:
+  PickUpSound: PlayerPickupSaw
+Soap:
+  PickUpSound: PlayerPickupMisc
+Spatula:
+  PickUpSound: PlayerPickupSpatula
+Spoon_01_Plastic:
+  PickUpSound: PlayerPickupScrapPlastic
+Spoon_02_StainlessSteel:
+  PickUpSound: PlayerPickupCutlery
+Spoon_03_Silver:
+  PickUpSound: PlayerPickupCutlery
+Spoon_Wooden:
+  PickUpSound: PlayerPickupWood
+SubwayTicket:
+  PickUpSound: DLC04ITMArcadeTokenUp
+SurgicalCutter:
+  PickUpSound: PlayerPickupSaw
+SurgicalScalpel:
+  PickUpSound: PlayerPickupTool
+SurgicalScissors:
+  PickUpSound: PlayerPickupScissors
+SurgicalTray01:
+  PickUpSound: PlayerPickupMiscMetallic
+TVdinnerTray:
+  PickUpSound: PlayerPickupMiscMetallic
+Teacup01:
+  PickUpSound: PlayerPickupCoffeCup
+TeacupSaucer01:
+  PickUpSound: PlayerPickupCoffeCup
+Teapot:
+  PickUpSound: PlayerPickupCoffeCup
+TeddyBear:
+  PickUpSound: PlayerPickupMisc
+TeddyBearClean:
+  PickUpSound: PlayerPickupMisc
+Telephone01:
+  PickUpSound: PlayerPickupMisc
+TinCan01:
+  PickUpSound: PlayerPickupTinCan
+TinCan02:
+  PickUpSound: PlayerPickupTinCan
+TinCan03:
+  PickUpSound: PlayerPickupTinCan
+Toaster_01_PostWar:
+  PickUpSound: PlayerPickupMiscMetallic
+Toaster_01_Prewar:
+  PickUpSound: PlayerPickupMiscMetallic
+Toothbrush:
+  PickUpSound: PlayerPickupScrapPlastic
+Toothpaste:
+  PickUpSound: PlayerPickupScrapPlastic
+ToyAlien:
+  PickUpSound: PlayerPickupScrapPlastic
+ToyCar:
+  PickUpSound: PlayerPickupWood
+ToyCar_PreWar:
+  PickUpSound: PlayerPickupWood
+ToyRocketship:
+  PickUpSound: PlayerPickupScrapPlastic
+ToyTruck01:
+  PickUpSound: PlayerPickupScrapMetal
+ToyTruck_PreWar01:
+  PickUpSound: PlayerPickupScrapMetal
+ToyWoodenBlock01:
+  PickUpSound: PlayerPickupWood
+ToyWoodenBlock02:
+  PickUpSound: PlayerPickupWood
+ToyWoodenBlock03:
+  PickUpSound: PlayerPickupWood
+ToyWoodenBlock04:
+  PickUpSound: PlayerPickupWood
+Turpentine:
+  PickUpSound: PlayerPickupTurpentine
+Turpentine_Rare:
+  PickUpSound: PlayerPickupTurpentine
+Typewriter:
+  PickUpSound: PlayerPickupMiscMetallic
+Typewriter_Rare:
+  PickUpSound: PlayerPickupMiscMetallic
+VacuumTube:
+  PickUpSound: PlayerPickupGlassCup
+Vase01:
+  PickUpSound: PlayerPickupCoffeCup
+WatchGold:
+  PickUpSound: PlayerPickupMiscMetallic
+WatchSilver:
+  PickUpSound: PlayerPickupMiscMetallic
+Weight01_10lb:
+  PickUpSound: PlayerPickupMetalDumbell
+Weight01_25lb:
+  PickUpSound: PlayerPickupMetalDumbell
+Weight01_5lb:
+  PickUpSound: PlayerPickupMetalDumbell
+Weight01_Barbell01_80lb:
+  PickUpSound: PlayerPickupMetalDumbell
+Weight01_Barbell02_160lb:
+  PickUpSound: PlayerPickupMetalDumbell
+Weight01_Barbell03_40lb:
+  PickUpSound: PlayerPickupMetalDumbell
+Weight01_Curlbar01_80lb:
+  PickUpSound: PlayerPickupMetalDumbell
+Weight01_Dumbbell01_20lb:
+  PickUpSound: PlayerPickupMetalDumbell
+Wonderglue:
+  PickUpSound: PlayerPickupScrapMetal
+WonderglueLarge:
+  PickUpSound: PlayerPickupScrapMetal
+Wonderglue_PreWar:
+  PickUpSound: PlayerPickupScrapMetal
+WoodTtubeRack:
+  PickUpSound: PlayerPickupWood
+Yardstick:
+  PickUpSound: PlayerPickupWood
+Yarn_01_Cotton:
+  PickUpSound: PlayerPickupMisc
+c_Aluminum_scrap:
+  PickUpSound: PlayerPickupMiscMetallic
+c_Asbestos_scrap:
+  PickUpSound: PlayerPickupScrapMetal
+c_Circuitry_scrap:
+  PickUpSound: PlayerPickupScrapElectronics
+c_Cloth_scrap:
+  PickUpSound: PlayerPickupCloth
+c_Copper_scrap:
+  PickUpSound: PlayerPickupMiscMetallic
+c_Crystal_scrap:
+  PickUpSound: PlayerPickupScrapElectronics
+c_FiberOptics_scrap:
+  PickUpSound: PlayerPickupScrapElectronics
+c_Fiberglass_scrap:
+  PickUpSound: PlayerPickupScrapElectronics
+c_Gears_scrap:
+  PickUpSound: PlayerPickupMiscMetallic
+c_Gold_scrap:
+  PickUpSound: PlayerPickupScrapMetal
+c_Lead_scrap:
+  PickUpSound: PlayerPickupScrapMetal
+c_Screws_scrap:
+  PickUpSound: PlayerPickupScrapNails
+c_Silver_scrap:
+  PickUpSound: PlayerPickupScrapMetal
+c_Springs_scrap:
+  PickUpSound: PlayerPickupScrapMetal
+c_Steel_scrap:
+  PickUpSound: PlayerPickupMiscMetallic
+c_Wood_scrap:
+  PickUpSound: PlayerPickupWood
+BeerBottleStandard01:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+  ConsumeSound: NPCHumanDrinkGeneric
+BeerGwinnettAle:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+  ConsumeSound: NPCHumanDrinkGeneric
+BeerGwinnettBrew:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+  ConsumeSound: NPCHumanDrinkGeneric
+BeerGwinnettLager:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+  ConsumeSound: NPCHumanDrinkGeneric
+BeerGwinnettPale:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+  ConsumeSound: NPCHumanDrinkGeneric
+BeerGwinnettPils:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+  ConsumeSound: NPCHumanDrinkGeneric
+BeerGwinnettStout:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+  ConsumeSound: NPCHumanDrinkGeneric
+BlamcoMacAndCheese:
+  PickUpSound: PlayerPickupFood
+  PutDownSound: PlayerPickupFood
+Bloodpack:
+  PickUpSound: PlayerPickupBloodPack
+  PutDownSound: PlayerPickupBloodPack
+Bourbon:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+Bubblegum:
+  PickUpSound: PlayerPickupFood
+  PutDownSound: PlayerPickupFood
+Buffout:
+  PickUpSound: PlayerPickupBuffout_RadX
+  PutDownSound: PlayerPickupBuffout_RadX
+Cram:
+  PickUpSound: PlayerPickupFoodCanned
+  PutDownSound: PlayerPickupFoodCanned
+DandyBoyApples:
+  PickUpSound: PlayerPickupFood
+  PutDownSound: PlayerPickupFood
+Dogfood:
+  PickUpSound: PlayerPickupFoodCanned
+  PutDownSound: PlayerPickupFoodCanned
+FancyLadSnackCakes:
+  PickUpSound: PlayerPickupFood
+  PutDownSound: PlayerPickupFood
+InstaMash:
+  PickUpSound: PlayerPickupFood
+  PutDownSound: PlayerPickupFood
+LukowskisPottedMeat:
+  PickUpSound: PlayerPickupFoodCanned
+  PutDownSound: PlayerPickupFoodCanned
+Mentats:
+  PickUpSound: PlayerPickupMentats
+  PutDownSound: PlayerPickupMentats
+MoldyFood01:
+  PickUpSound: PlayerPickupFood
+  PutDownSound: PlayerPickupFood
+NukaCola:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+PorknBeans:
+  PickUpSound: PlayerPickupFoodCanned
+  PutDownSound: PlayerPickupFoodCanned
+PotatoCrisps:
+  PickUpSound: PlayerPickupFoodChipBag
+  PutDownSound: PlayerPickupFoodChipBag
+RadX:
+  PickUpSound: PlayerPickupBuffout_RadX
+  PutDownSound: PlayerPickupBuffout_RadX
+SalisburySteak:
+  PickUpSound: PlayerPickupFood
+  PutDownSound: PlayerPickupFood
+SquirrelBitsCrispy:
+  PickUpSound: PlayerPickupFood
+  PutDownSound: PlayerPickupFood
+SugarBombs:
+  PickUpSound: PlayerPickupFood
+  PutDownSound: PlayerPickupFood
+Vodka:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+WaterDirty:
+  PickUpSound: PlayerPickupWaterBottle
+WaterPurified:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+Wine:
+  PickUpSound: PlayerPickupWaterBottle
+  PutDownSound: PlayerPickupWaterBottle
+YumYumDeviledEggs:
+  PickUpSound: PlayerPickupFood
+  PutDownSound: PlayerPickupFood

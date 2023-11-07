@@ -1,8 +1,8 @@
 {
-  "Nickname": "ModReEvaluator",
+  "Nickname": "Mod Re-Evaluator",
   "Visibility": "Visible",
   "OneLineDescription": "Recalculates all values and weights of weapon and armor mods and their resulting loose mod",
-  "LongDescription": "Check the full description on GitHub",
+  "LongDescription": "Recalculates all values and weights of weapon and armor mods and their resulting loose mod. Check the full description on GitHub.",
   "PreferredAutoVersioning": "Default",
   "RequiredMods": [],
   "TargetedReleases": [

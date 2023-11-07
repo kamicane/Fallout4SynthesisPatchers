@@ -1,8 +1,8 @@
 {
-  "Nickname": "HeyThatsNotJunk",
+  "Nickname": "Hey That's Not Junk",
   "Visibility": "Visible",
-  "OneLineDescription": "Removes components from selected misc items to make them unscrappable",
-  "LongDescription": "Check the full description on GitHub",
+  "OneLineDescription": "Removes components from selected misc items to make them unscrappable.",
+  "LongDescription": "Like \"Hey Thats Not Junk\" on the nexus, but as a Synthesis patcher. Removes components from selected misc items to make them unscrappable.",
   "PreferredAutoVersioning": "Default",
   "RequiredMods": [],
   "TargetedReleases": [

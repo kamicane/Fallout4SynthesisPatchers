@@ -4,11 +4,15 @@ using Mutagen.Bethesda.Fallout4;
 using Mutagen.Bethesda.FormKeys.Fallout4;
 using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.WPF.Reflection.Attributes;
+using Mutagen.Bethesda.Plugins.Records;
 using Noggog;
+
 
 namespace ModReEvaluator {
 	public class Program {
 		static Lazy<ProgramSettings> Settings = null!;
+
+		static IPatcherState<IFallout4Mod, IFallout4ModGetter> LocalState = null!;
 		public static async Task<int> Main(string[] args) {
 			return await SynthesisPipeline.Instance
 				.AddPatch<IFallout4Mod, IFallout4ModGetter>(RunPatch)
@@ -18,6 +22,12 @@ namespace ModReEvaluator {
 					out Settings)
 				.SetTypicalOpen(GameRelease.Fallout4, "YourPatcher.esp")
 				.Run(args);
+		}
+
+		public static string NiceForm (IMajorRecordGetter form) {
+			var formatted = $"{form.FormKey.ModKey}|{form.FormKey.ID:X}";
+			if (form.EditorID != null) formatted += $" ({form.EditorID})";
+			return formatted;
 		}
 
 		public static void LogError (string message) {
@@ -32,14 +42,14 @@ namespace ModReEvaluator {
 			if (Settings.Value.LogLevel == 0) Console.WriteLine($"INFO: {message}");
 		}
 
-		public static (uint, float) RegisterComponent (IPatcherState<IFallout4Mod, IFallout4ModGetter> state, IComponentGetter componentItem, uint componentCount, List<MiscItemComponent> miscComponentsList, List<ConstructibleObjectComponent> cobjComponentsList) {
-			var cmpoScrapItem = componentItem.ScrapItem?.TryResolve<IMiscItemGetter>(state.LinkCache);
+		public static (uint, float) RegisterComponent (IComponentGetter componentItem, uint componentCount, List<MiscItemComponent> miscComponentsList, List<ConstructibleObjectComponent> cobjComponentsList) {
+			var cmpoScrapItem = componentItem.ScrapItem?.TryResolve<IMiscItemGetter>(LocalState.LinkCache);
 			if (cmpoScrapItem == null) {
-				LogWarning($"Component has no ScrapItem: {componentItem.FormKey.ModKey}:{componentItem.EditorID}");
+				LogWarning($"Component has no ScrapItem: {NiceForm(componentItem)}");
 				return (0, 0);
 			}
 
-			var cmpoScalar = componentItem.ModScrapScalar?.TryResolve<IGlobalGetter>(state.LinkCache);
+			var cmpoScalar = componentItem.ModScrapScalar?.TryResolve<IGlobalGetter>(LocalState.LinkCache);
 
 			uint scaledComponentCount = componentCount;
 
@@ -77,18 +87,25 @@ namespace ModReEvaluator {
 			return (cmpoValue * componentCount, cmpoWeight * componentCount);
 		}
 
-		public static bool IsScrapScalarNone (IPatcherState<IFallout4Mod, IFallout4ModGetter> state, IComponentGetter component) {
-			var scalarValue = component.ModScrapScalar?.TryResolve<IGlobalGetter>(state.LinkCache);
+		public static bool IsScrapScalarNone (IComponentGetter component) {
+			var scalarValue = component.ModScrapScalar?.TryResolve<IGlobalGetter>(LocalState.LinkCache);
 			if (scalarValue != null && scalarValue.Equals(Fallout4.Global.ModScrapScalar_None)) {
 				return true;
 			}
 			return false;
 		}
 
-		public static void ProcessCobj(IPatcherState<IFallout4Mod, IFallout4ModGetter> state, IConstructibleObjectGetter cobjItem) {
-				var omodItem = cobjItem.CreatedObject.TryResolve<IAObjectModificationGetter>(state.LinkCache);
+		public static void ProcessCobj(IConstructibleObjectGetter cobjItem) {
+				var omodItem = cobjItem.CreatedObject.TryResolve<IAObjectModificationGetter>(LocalState.LinkCache);
 				// nothing to do
 				if (omodItem == null || (omodItem is not IWeaponModificationGetter && omodItem is not IArmorModificationGetter)) return;
+
+				var mnams = omodItem.TargetOmodKeywords;
+
+				if (mnams == null) {
+					LogWarning($"Mod Association is NULL, Skipping OMOD: {NiceForm(omodItem)}");
+					return;
+				}
 
 				uint totalValue = 0;
 				float totalWeight = 0;
@@ -105,25 +122,25 @@ namespace ModReEvaluator {
 				}
 
 				if (cobjItem.Components != null) foreach (var componentEntry in cobjItem.Components) {
-					var cKey = componentEntry.Component?.TryResolve(state.LinkCache);
+					var cKey = componentEntry.Component?.TryResolve(LocalState.LinkCache);
 					var cCount = componentEntry.Count;
 
 					if (cKey == null) {
-						LogWarning($"Empty Component on {cobjItem.FormKey.ModKey}:{cobjItem.EditorID}");
+						LogWarning($"Empty Component. COBJ: {NiceForm(cobjItem)}");
 						cobjNeedsFix = true;
 						continue;
 					}
 
 					if (cCount <= 0) {
-						LogWarning($"Zero count on {cobjItem.FormKey.ModKey}:{cobjItem.EditorID}");
+						LogWarning($"Zero count. COBJ: {NiceForm(cobjItem)}");
 						cobjNeedsFix = true;
 						continue;
 					}
 
 					if (cKey is IComponentGetter cKeyComponent) {
-						if (shouldRemoveLooseMod && !IsScrapScalarNone(state, cKeyComponent)) shouldRemoveLooseMod = false;
+						if (shouldRemoveLooseMod && !IsScrapScalarNone(cKeyComponent)) shouldRemoveLooseMod = false;
 
-						var valueAndWeight = RegisterComponent(state, cKeyComponent, cCount, miscComponentsList, cobjComponentsList);
+						var valueAndWeight = RegisterComponent(cKeyComponent, cCount, miscComponentsList, cobjComponentsList);
 						totalValue += valueAndWeight.Item1;
 						totalWeight += valueAndWeight.Item2;
 
@@ -136,7 +153,7 @@ namespace ModReEvaluator {
 						if (cKeyMisc.Components == null || cKeyMisc.Components.Count == 0) {
 							if (shouldRemoveLooseMod) shouldRemoveLooseMod = false;
 
-							LogInfo($"COBJ is using MiscItem as Component. COBJ: {cobjItem.FormKey.ModKey}:{cobjItem.EditorID}, MISC: {cKey.FormKey.ModKey}:{cKey.EditorID}");
+							LogInfo($"COBJ is using MiscItem as Component. COBJ: {NiceForm(cobjItem)}, MISC: {NiceForm(cKeyMisc)}");
 
 							totalValue += (uint)cKeyMisc.Value;
 							totalWeight += cKeyMisc.Weight;
@@ -152,58 +169,58 @@ namespace ModReEvaluator {
 						}
 
 						foreach (var miscComponentEntry in cKeyMisc.Components) {
-							var miscComponentEntryComponent = miscComponentEntry.Component?.TryResolve<IComponentGetter>(state.LinkCache);
+							var miscComponentEntryComponent = miscComponentEntry.Component?.TryResolve<IComponentGetter>(LocalState.LinkCache);
 							if (miscComponentEntryComponent == null) {
-								LogError($"{cKey.FormKey.ModKey}:{cKey.EditorID}");
+								LogWarning($"Invalid Component Entry. MISC: {NiceForm(cKeyMisc)}");
 								continue;
 							}
 
-							if (shouldRemoveLooseMod && !IsScrapScalarNone(state, miscComponentEntryComponent)) shouldRemoveLooseMod = false;
+							if (shouldRemoveLooseMod && !IsScrapScalarNone(miscComponentEntryComponent)) shouldRemoveLooseMod = false;
 
-							var valueAndWeight = RegisterComponent(state, miscComponentEntryComponent, miscComponentEntry.Count * cCount, miscComponentsList, cobjComponentsList);
+							var valueAndWeight = RegisterComponent(miscComponentEntryComponent, miscComponentEntry.Count * cCount, miscComponentsList, cobjComponentsList);
 							totalValue += valueAndWeight.Item1;
 							totalWeight += valueAndWeight.Item2;
 						}
 
-						LogWarning($"Converted scrappable MISC to base components. COBJ: {cobjItem.FormKey.ModKey}:{cobjItem.EditorID}, MISC: {cKey.FormKey.ModKey}:{cKey.EditorID}");
+						LogWarning($"Converted scrappable MISC to base components. COBJ: {NiceForm(cobjItem)}, MISC: {NiceForm(cKeyMisc)}");
 					} else {
 						cobjNeedsFix = true;
-						LogWarning($"Removing invalid Component. COBJ: {cobjItem.FormKey.ModKey}:{cobjItem.EditorID}, Form: {cKey.FormKey.ModKey}:{cKey.EditorID}");
+						LogWarning($"Removing invalid Component. COBJ: {NiceForm(cobjItem)}, Form: {NiceForm(cKey)}");
 					}
 				}
 
 				if (cobjNeedsFix) {
-					var fixedCobj = state.PatchMod.ConstructibleObjects.GetOrAddAsOverride(cobjItem);
+					var fixedCobj = LocalState.PatchMod.ConstructibleObjects.GetOrAddAsOverride(cobjItem);
 					if (cobjComponentsList.Count > 0) fixedCobj.Components = cobjComponentsList;
 					else fixedCobj.Components?.Clear();
 				}
 
-				var objectMod = state.PatchMod.ObjectModifications.GetOrAddAsOverride(omodItem);
+				var objectMod = LocalState.PatchMod.ObjectModifications.GetOrAddAsOverride(omodItem);
 
-				var LooseMiscItem = omodItem.LooseMod.TryResolve<IMiscItemGetter>(state.LinkCache);
+				var looseMiscItem = objectMod.LooseMod.TryResolve<IMiscItemGetter>(LocalState.LinkCache);
 
-				if (LooseMiscItem != null) {
+				if (looseMiscItem != null) {
 					if (!shouldRemoveLooseMod) {
-						var fixedLooseMod = state.PatchMod.MiscItems.GetOrAddAsOverride(LooseMiscItem);
+						var fixedLooseMod = LocalState.PatchMod.MiscItems.GetOrAddAsOverride(looseMiscItem);
 						if (Settings.Value.MakeLooseModsScrappable && miscComponentsList.Count > 0) fixedLooseMod.Components = miscComponentsList;
 						else fixedLooseMod.Components?.Clear();
 
 						fixedLooseMod.Value = (int)totalValue;
 						fixedLooseMod.Weight = totalWeight;
 					} else {
-						LogInfo($"Removing loose mod. COBJ: {cobjItem.FormKey.ModKey}:{cobjItem.EditorID}, OMOD: {omodItem.FormKey.ModKey}:{omodItem.EditorID} {omodItem.Name}");
+						LogInfo($"Removing loose mod. COBJ: {NiceForm(cobjItem)}, OMOD: {NiceForm(omodItem)}");
 						objectMod.LooseMod.Clear();
 
-						if (LooseMiscItem.Value != 0 || LooseMiscItem.Weight != 0 || LooseMiscItem.Components != null) {
-							var fixedLooseMod = state.PatchMod.MiscItems.GetOrAddAsOverride(LooseMiscItem);
+						if (looseMiscItem.Value != 0 || looseMiscItem.Weight != 0 || looseMiscItem.Components != null) {
+							var fixedLooseMod = LocalState.PatchMod.MiscItems.GetOrAddAsOverride(looseMiscItem);
 							fixedLooseMod.Value = 0;
 							fixedLooseMod.Weight = 0;
 							fixedLooseMod.Components?.Clear();
-							LogInfo($"Zeroed value, weight and components. MISC: {LooseMiscItem.FormKey.ModKey}:{LooseMiscItem.EditorID}");
+							LogInfo($"Zeroed value, weight and components. MISC: {NiceForm(looseMiscItem)}");
 						}
 					}
 				} else if (miscComponentsList.Count > 0) {
-					LogWarning($"No loose mod on COBJ with components. COBJ: {cobjItem.FormKey.ModKey}:{cobjItem.EditorID}, OMOD: {omodItem.FormKey.ModKey}:{omodItem.EditorID}");
+					LogWarning($"No loose mod on COBJ with components. COBJ: {NiceForm(cobjItem)}, OMOD: {NiceForm(omodItem)}");
 				}
 
 				if (objectMod is WeaponModification weaponMod) {
@@ -216,23 +233,23 @@ namespace ModReEvaluator {
 					}
 
 					if (totalValue > 0) {
-						ObjectModFloatProperty<Weapon.Property> newFloatProp = new()
+						ObjectModIntProperty<Weapon.Property> newProp = new()
 						{
 							FunctionType = ObjectModProperty.FloatFunctionType.Add,
 							Property = Weapon.Property.Value,
 							Value = totalValue
 						};
-						weaponMod.Properties.Add(newFloatProp);
+						weaponMod.Properties.Add(newProp);
 					}
 
 					if (totalWeight > 0) {
-						ObjectModFloatProperty<Weapon.Property> newFloatProp = new()
+						ObjectModFloatProperty<Weapon.Property> newProp = new()
 						{
 							FunctionType = ObjectModProperty.FloatFunctionType.Add,
 							Property = Weapon.Property.Weight,
 							Value = totalWeight
 						};
-						weaponMod.Properties.Add(newFloatProp);
+						weaponMod.Properties.Add(newProp);
 					}
 				} else if (objectMod is ArmorModification armorMod) { //eww
 					for (int i = armorMod.Properties.Count - 1; i >= 0; i--) {
@@ -244,38 +261,39 @@ namespace ModReEvaluator {
 					}
 
 					if (totalValue > 0) {
-						ObjectModFloatProperty<Armor.Property> newFloatProp = new()
+						ObjectModIntProperty<Armor.Property> newProp = new()
 						{
 							FunctionType = ObjectModProperty.FloatFunctionType.Add,
 							Property = Armor.Property.Value,
 							Value = totalValue
 						};
-						armorMod.Properties.Add(newFloatProp);
+						armorMod.Properties.Add(newProp);
 					}
 
 					if (totalWeight > 0) {
-						ObjectModFloatProperty<Armor.Property> newFloatProp = new()
+						ObjectModFloatProperty<Armor.Property> newProp = new()
 						{
 							FunctionType = ObjectModProperty.FloatFunctionType.Add,
 							Property = Armor.Property.Weight,
 							Value = totalWeight
 						};
-						armorMod.Properties.Add(newFloatProp);
+						armorMod.Properties.Add(newProp);
 					}
 				}
 		}
 
 		public static void RunPatch(IPatcherState<IFallout4Mod, IFallout4ModGetter> state) {
 			// Add NotJunkJetAmmo keyword to component scrap if missing
+			LocalState = state;
 
-			var componentItems = state.LoadOrder.PriorityOrder.Component().WinningOverrides();
+			var componentItems = LocalState.LoadOrder.PriorityOrder.Component().WinningOverrides();
 
 			foreach (var componentItem in componentItems) {
-				var miscItem = componentItem.ScrapItem?.TryResolve<IMiscItemGetter>(state.LinkCache);
+				var miscItem = componentItem.ScrapItem?.TryResolve<IMiscItemGetter>(LocalState.LinkCache);
 				if (miscItem == null) continue;
 
 				if (!miscItem.HasKeyword(Fallout4.Keyword.NotJunkJetAmmo)) {
-					var miscItemOverride = state.PatchMod.MiscItems.GetOrAddAsOverride(miscItem);
+					var miscItemOverride = LocalState.PatchMod.MiscItems.GetOrAddAsOverride(miscItem);
 					miscItemOverride.Keywords ??= new();
 					miscItemOverride.Keywords.Add(Fallout4.Keyword.NotJunkJetAmmo);
 				}
@@ -284,7 +302,7 @@ namespace ModReEvaluator {
 			// Sanity Pass
 			// minimum weight and minimum value checks
 
-			var miscItems = state.LoadOrder.PriorityOrder.MiscItem().WinningOverrides();
+			var miscItems = LocalState.LoadOrder.PriorityOrder.MiscItem().WinningOverrides();
 
 			foreach (var miscItem in miscItems) {
 				if (miscItem.Components == null || miscItem.Components.Count == 0) continue;
@@ -296,16 +314,16 @@ namespace ModReEvaluator {
 				float minWeight = 0;
 
 				foreach (var componentEntry in miscItem.Components) {
-					var component = componentEntry.Component?.TryResolve<IComponentGetter>(state.LinkCache);
+					var component = componentEntry.Component?.TryResolve<IComponentGetter>(LocalState.LinkCache);
 					if (component == null) {
-						LogWarning($"Invalid Component on Misc: {miscItem.FormKey.ModKey}:{miscItem.EditorID} ({miscItem.Name})");
+						LogWarning($"Invalid Component. MISC: {NiceForm(miscItem)})");
 						miscNeedsFix = true;
 						continue;
 					}
-					var scrapItem = component.ScrapItem?.TryResolve<IMiscItemGetter>(state.LinkCache);
+					var scrapItem = component.ScrapItem?.TryResolve<IMiscItemGetter>(LocalState.LinkCache);
 
 					if (scrapItem == null) {
-						LogWarning($"Component with no ScrapItem on Misc: {miscItem.FormKey.ModKey}:{miscItem.EditorID} ({miscItem.Name})");
+						LogWarning($"Component with no ScrapItem. MISC: {NiceForm(miscItem)}");
 						miscNeedsFix = true;
 						continue;
 					}
@@ -328,7 +346,7 @@ namespace ModReEvaluator {
 
 				if (miscItem.Value < minValue) {
 					Console.ForegroundColor = ConsoleColor.Yellow;
-					LogInfo($"Recalculated value on MISC: {miscItem.FormKey.ModKey}:{miscItem.EditorID} ({miscItem.Name})");
+					LogInfo($"Recalculated value. MISC: {NiceForm(miscItem)}");
 					miscNeedsFix = true;
 					miscValue = minValue;
 				}
@@ -342,13 +360,13 @@ namespace ModReEvaluator {
 				}
 
 				if (!isShipment && miscItem.Weight < minWeight) {
-					LogInfo($"Recalculated weight on Misc: {miscItem.FormKey.ModKey}:{miscItem.EditorID} ({miscItem.Name})");
+					LogInfo($"Recalculated weight. MISC: {NiceForm(miscItem)}");
 					miscNeedsFix = true;
 					miscWeight = minWeight;
 				}
 
 				if (miscNeedsFix) {
-					var fixedMisc = state.PatchMod.MiscItems.GetOrAddAsOverride(miscItem);
+					var fixedMisc = LocalState.PatchMod.MiscItems.GetOrAddAsOverride(miscItem);
 					fixedMisc.Components = miscComponentsList;
 					fixedMisc.Value = miscValue;
 					fixedMisc.Weight = miscWeight;
@@ -357,10 +375,10 @@ namespace ModReEvaluator {
 
 			// Process COBJs
 
-			var cobjItems = state.LoadOrder.PriorityOrder.ConstructibleObject().WinningOverrides();
+			var cobjItems = LocalState.LoadOrder.PriorityOrder.ConstructibleObject().WinningOverrides();
 			foreach (var cobjItem in cobjItems) {
 				if (Settings.Value.COBJExcludeList.Contains(cobjItem)) continue;
-				ProcessCobj(state, cobjItem);
+				ProcessCobj(cobjItem);
 			}
 		}
 	}

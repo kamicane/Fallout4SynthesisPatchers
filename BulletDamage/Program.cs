@@ -5,14 +5,14 @@ using YamlDotNet.Serialization;
 
 namespace BulletDamage {
 	public class Program {
-		public static async Task<int> Main(string[] args) {
+		public static async Task<int> Main (string[] args) {
 			return await SynthesisPipeline.Instance
 				.AddPatch<IFallout4Mod, IFallout4ModGetter>(RunPatch)
 				.SetTypicalOpen(GameRelease.Fallout4, "YourPatcher.esp")
 				.Run(args);
 		}
 
-		public static void RunPatch(IPatcherState<IFallout4Mod, IFallout4ModGetter> state) {
+		public static void RunPatch (IPatcherState<IFallout4Mod, IFallout4ModGetter> state) {
 			Type type = typeof(Program);
 			string? namespaceString = type.Namespace;
 

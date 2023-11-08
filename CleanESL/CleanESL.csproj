@@ -9,6 +9,5 @@
   <ItemGroup>
     <PackageReference Include="Mutagen.Bethesda.Fallout4" Version="0.42" />
     <PackageReference Include="Mutagen.Bethesda.Synthesis" Version="0.26" />
-    <PackageReference Include="YamlDotNet" Version="13.7.1" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,3 @@
 # CleanESL
 
-Empties the current PatchFile and flags it as ESL.
-Add it before everything else.
+Empties the current PatchFile and flags it as ESL. Add it on top of your groups.

@@ -2,7 +2,7 @@
   "Nickname": "Clean ESL",
   "Visibility": "Visible",
   "OneLineDescription": "Empties the current PatchFile and flags it as ESL",
-  "LongDescription": "Empties the current PatchFile and flags it as ESL. Add it at the top of the group.",
+  "LongDescription": "Empties the current PatchFile and flags it as ESL. Add it at the top of your groups.",
   "PreferredAutoVersioning": "Default",
   "RequiredMods": [],
   "TargetedReleases": [

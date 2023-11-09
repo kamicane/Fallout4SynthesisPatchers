@@ -22,7 +22,7 @@ namespace HeyThatsNotJunk {
 		}
 
 		public static void RunPatch (IPatcherState<IFallout4Mod, IFallout4ModGetter> state) {
-			foreach (var item in localSettings.Value.MiscNotJunk) {
+			foreach (var item in localSettings.Value.itsMiscNotJunk) {
 				var miscItem = item.Resolve(state.LinkCache);
 
 				Console.WriteLine($"{miscItem.Name}");
@@ -44,7 +44,7 @@ namespace HeyThatsNotJunk {
 	public class ProgramSettings {
 		[MaintainOrder]
 		[SettingName("Not Junk")]
-		public List<IFormLinkGetter<IMiscItemGetter>> MiscNotJunk =
+		public List<IFormLinkGetter<IMiscItemGetter>> itsMiscNotJunk =
 			new()
 			{
 				Fallout4.MiscItem.BaseballGlove_PreWar,

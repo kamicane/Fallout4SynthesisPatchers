@@ -1,0 +1,11 @@
+{
+  "Nickname": "Crafting Workbench Renamer",
+  "Visibility": "Visible",
+  "OneLineDescription": "Renames all Chemistry Stations to Crafting Workbench",
+  "LongDescription": "Renames all Chemistry Stations to Crafting Workbench, while keeping existing prefixes and suffixes.\nCompat Chem Station => Compat Crafting Workbench",
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": [],
+  "TargetedReleases": [
+    "Fallout4"
+  ]
+}

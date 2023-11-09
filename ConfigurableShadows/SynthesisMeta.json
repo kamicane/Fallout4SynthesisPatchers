@@ -1,0 +1,11 @@
+{
+  "Nickname": "ConfigurableShadows",
+  "Visibility": "Visible",
+  "OneLineDescription": "Add or remove shadow casting from light types",
+  "LongDescription": "Add or remove shadow casting from light types",
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": [],
+  "TargetedReleases": [
+    "Fallout4"
+  ]
+}

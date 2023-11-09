@@ -14,7 +14,7 @@ Recalculates all values and weights of weapon and armor mods and their resulting
 
 [Hey Thats Not Junk](https://www.nexusmods.com/fallout4/mods/3149) as a Synthesis patcher. Removes components from selected misc items to make them unscrappable.
 
-## [ImmersivePickupSounds](/ImmersivePickupSounds)
+## [Immersive Pickup Sounds](/ImmersivePickupSounds)
 
 [Immersive Pickup sounds](https://www.nexusmods.com/fallout4/mods/35917) as a Synthesis Patcher.
 

@@ -33,11 +33,11 @@ namespace ModReEvaluator {
 		}
 
 		public static void LogWarning (string message) {
-			if (localSettings.Value.LogLevel <= (ProgramSettings.LogLevelEnum)1) Console.WriteLine($"WARNING: {message}");
+			if (localSettings.Value.logLevel <= (ProgramSettings.LogLevelEnum)1) Console.WriteLine($"WARNING: {message}");
 		}
 
 		public static void LogInfo (string message) {
-			if (localSettings.Value.LogLevel == 0) Console.WriteLine($"INFO: {message}");
+			if (localSettings.Value.logLevel == 0) Console.WriteLine($"INFO: {message}");
 		}
 
 		public static (uint, float) RegisterComponent (
@@ -119,72 +119,70 @@ namespace ModReEvaluator {
 
 			if (cobjItem.Components?.Count == 0) cobjNeedsFix = true;
 
-			if (cobjItem.Components != null) {
-				foreach (var componentEntry in cobjItem.Components) {
-					var cKey = componentEntry.Component?.TryResolve(localState.LinkCache);
-					var cCount = componentEntry.Count;
+			foreach (var componentEntry in cobjItem.Components.EmptyIfNull()) {
+				var cKey = componentEntry.Component?.TryResolve(localState.LinkCache);
+				var cCount = componentEntry.Count;
 
-					if (cKey == null) {
-						LogWarning($"Empty Component. COBJ: {NiceForm(cobjItem)}");
-						cobjNeedsFix = true;
+				if (cKey == null) {
+					LogWarning($"Empty Component. COBJ: {NiceForm(cobjItem)}");
+					cobjNeedsFix = true;
+					continue;
+				}
+
+				if (cCount <= 0) {
+					LogWarning($"Zero count. COBJ: {NiceForm(cobjItem)}");
+					cobjNeedsFix = true;
+					continue;
+				}
+
+				if (cKey is IComponentGetter cKeyComponent) {
+					if (shouldRemoveLooseMod && !IsScrapScalarNone(cKeyComponent)) shouldRemoveLooseMod = false;
+
+					var valueAndWeight = RegisterComponent(cKeyComponent, cCount, miscComponentsList, cobjComponentsList);
+					totalValue += valueAndWeight.Item1;
+					totalWeight += valueAndWeight.Item2;
+
+				} else if (cKey is IMiscItemGetter cKeyMisc) {
+					// allow only misc items without components.
+					// only value and weight will be added.
+					// loose mod will be forced on. cannot be added to scraplist.
+					cobjNeedsFix = true;
+
+					if (cKeyMisc.Components == null || cKeyMisc.Components.Count == 0) {
+						if (shouldRemoveLooseMod) shouldRemoveLooseMod = false;
+
+						LogInfo($"COBJ is using MiscItem as Component. COBJ: {NiceForm(cobjItem)}, MISC: {NiceForm(cKeyMisc)}");
+
+						totalValue += (uint)cKeyMisc.Value;
+						totalWeight += cKeyMisc.Weight;
+
+						ConstructibleObjectComponent cobjComponentEntry = new() {
+							Component = cKeyMisc.ToLink(),
+							Count = cCount
+						};
+						cobjComponentsList.Add(cobjComponentEntry);
+
 						continue;
 					}
 
-					if (cCount <= 0) {
-						LogWarning($"Zero count. COBJ: {NiceForm(cobjItem)}");
-						cobjNeedsFix = true;
-						continue;
-					}
-
-					if (cKey is IComponentGetter cKeyComponent) {
-						if (shouldRemoveLooseMod && !IsScrapScalarNone(cKeyComponent)) shouldRemoveLooseMod = false;
-
-						var valueAndWeight = RegisterComponent(cKeyComponent, cCount, miscComponentsList, cobjComponentsList);
-						totalValue += valueAndWeight.Item1;
-						totalWeight += valueAndWeight.Item2;
-
-					} else if (cKey is IMiscItemGetter cKeyMisc) {
-						// allow only misc items without components.
-						// only value and weight will be added.
-						// loose mod will be forced on. cannot be added to scraplist.
-						cobjNeedsFix = true;
-
-						if (cKeyMisc.Components == null || cKeyMisc.Components.Count == 0) {
-							if (shouldRemoveLooseMod) shouldRemoveLooseMod = false;
-
-							LogInfo($"COBJ is using MiscItem as Component. COBJ: {NiceForm(cobjItem)}, MISC: {NiceForm(cKeyMisc)}");
-
-							totalValue += (uint)cKeyMisc.Value;
-							totalWeight += cKeyMisc.Weight;
-
-							ConstructibleObjectComponent cobjComponentEntry = new() {
-								Component = cKeyMisc.ToLink(),
-								Count = cCount
-							};
-							cobjComponentsList.Add(cobjComponentEntry);
-
+					foreach (var miscComponentEntry in cKeyMisc.Components) {
+						var miscComponentEntryComponent = miscComponentEntry.Component?.TryResolve<IComponentGetter>(localState.LinkCache);
+						if (miscComponentEntryComponent == null) {
+							LogWarning($"Invalid Component Entry. MISC: {NiceForm(cKeyMisc)}");
 							continue;
 						}
 
-						foreach (var miscComponentEntry in cKeyMisc.Components) {
-							var miscComponentEntryComponent = miscComponentEntry.Component?.TryResolve<IComponentGetter>(localState.LinkCache);
-							if (miscComponentEntryComponent == null) {
-								LogWarning($"Invalid Component Entry. MISC: {NiceForm(cKeyMisc)}");
-								continue;
-							}
+						if (shouldRemoveLooseMod && !IsScrapScalarNone(miscComponentEntryComponent)) shouldRemoveLooseMod = false;
 
-							if (shouldRemoveLooseMod && !IsScrapScalarNone(miscComponentEntryComponent)) shouldRemoveLooseMod = false;
-
-							var valueAndWeight = RegisterComponent(miscComponentEntryComponent, miscComponentEntry.Count * cCount, miscComponentsList, cobjComponentsList);
-							totalValue += valueAndWeight.Item1;
-							totalWeight += valueAndWeight.Item2;
-						}
-
-						LogWarning($"Converted scrappable MISC to base components. COBJ: {NiceForm(cobjItem)}, MISC: {NiceForm(cKeyMisc)}");
-					} else {
-						cobjNeedsFix = true;
-						LogWarning($"Removing invalid Component. COBJ: {NiceForm(cobjItem)}, Form: {NiceForm(cKey)}");
+						var valueAndWeight = RegisterComponent(miscComponentEntryComponent, miscComponentEntry.Count * cCount, miscComponentsList, cobjComponentsList);
+						totalValue += valueAndWeight.Item1;
+						totalWeight += valueAndWeight.Item2;
 					}
+
+					LogWarning($"Converted scrappable MISC to base components. COBJ: {NiceForm(cobjItem)}, MISC: {NiceForm(cKeyMisc)}");
+				} else {
+					cobjNeedsFix = true;
+					LogWarning($"Removing invalid Component. COBJ: {NiceForm(cobjItem)}, Form: {NiceForm(cKey)}");
 				}
 			}
 
@@ -201,7 +199,7 @@ namespace ModReEvaluator {
 			if (looseMiscItem != null) {
 				if (!shouldRemoveLooseMod) {
 					var fixedLooseMod = localState.PatchMod.MiscItems.GetOrAddAsOverride(looseMiscItem);
-					if (localSettings.Value.MakeLooseModsScrappable && miscComponentsList.Count > 0) fixedLooseMod.Components = miscComponentsList;
+					if (localSettings.Value.makeLooseModsScrappable && miscComponentsList.Count > 0) fixedLooseMod.Components = miscComponentsList;
 					else fixedLooseMod.Components?.Clear();
 
 					fixedLooseMod.Value = (int)totalValue;
@@ -371,7 +369,7 @@ namespace ModReEvaluator {
 
 			var cobjItems = localState.LoadOrder.PriorityOrder.ConstructibleObject().WinningOverrides();
 			foreach (var cobjItem in cobjItems) {
-				if (localSettings.Value.COBJExcludeList.Contains(cobjItem)) continue;
+				if (localSettings.Value.cobjExcludeList.Contains(cobjItem)) continue;
 				ProcessCobj(cobjItem);
 			}
 		}
@@ -380,7 +378,7 @@ namespace ModReEvaluator {
 	public class ProgramSettings {
 		[MaintainOrder]
 		[SettingName("Make Loose Mods Scrappable (Warning: read docs)")]
-		public bool MakeLooseModsScrappable = false;
+		public bool makeLooseModsScrappable = false;
 		// [MaintainOrder]
 		// [SettingName("Remove All Loose Mods (Starfield Style)")]
 		// public bool RemoveAllLooseMods = false;
@@ -398,11 +396,11 @@ namespace ModReEvaluator {
 
 		[MaintainOrder]
 		[SettingName("Log Level")]
-		public LogLevelEnum LogLevel = LogLevelEnum.Warning;
+		public LogLevelEnum logLevel = LogLevelEnum.Warning;
 
 		[MaintainOrder]
 		[SettingName("Excluded Recipes")]
-		public List<IFormLinkGetter<IConstructibleObjectGetter>> COBJExcludeList = new() {
+		public List<IFormLinkGetter<IConstructibleObjectGetter>> cobjExcludeList = new() {
 
 		};
 

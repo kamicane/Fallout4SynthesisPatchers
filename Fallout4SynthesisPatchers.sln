@@ -16,6 +16,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurableShadows", "Conf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftingWorkbenchRenamer", "CraftingWorkbenchRenamer\CraftingWorkbenchRenamer.csproj", "{0C7B7DB7-86AD-4C70-A224-35E3745F6B37}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clarify", "Clarify\Clarify.csproj", "{62A82561-7110-4265-9213-834C6B4FEB98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{0C7B7DB7-86AD-4C70-A224-35E3745F6B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C7B7DB7-86AD-4C70-A224-35E3745F6B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C7B7DB7-86AD-4C70-A224-35E3745F6B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62A82561-7110-4265-9213-834C6B4FEB98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A82561-7110-4265-9213-834C6B4FEB98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A82561-7110-4265-9213-834C6B4FEB98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A82561-7110-4265-9213-834C6B4FEB98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

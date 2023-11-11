@@ -12,7 +12,7 @@ Recalculates all values and weights of weapon and armor mods and their resulting
 
 ## [Hey That's Not Junk](/HeyThatsNotJunk)
 
-[Hey Thats Not Junk](https://www.nexusmods.com/fallout4/mods/3149) as a Synthesis patcher. Removes components from selected misc items to make them unscrappable.
+[Hey Thats Not Junk](https://www.nexusmods.com/fallout4/mods/3149) as a Synthesis patcher. Removes components from selected misc items to make them unscrappable. Configurable.
 
 ## [Immersive Pickup Sounds](/ImmersivePickupSounds)
 
@@ -20,7 +20,11 @@ Recalculates all values and weights of weapon and armor mods and their resulting
 
 ## [Configurable Shadows](/ConfigurableShadows)
 
-Add or remove shadow casting from light types.
+Add or remove shadow casting from light types. Configurable.
+
+## [Clarify](/Clarify)
+
+Applies some [Clarity](https://www.nexusmods.com/fallout4/mods/31991) settings to Weathers, Image Spaces and Lighting Templates. Configurable.
 
 ## [Crafting Workbench Renamer](/CraftingWorkbenchRenamer)
 

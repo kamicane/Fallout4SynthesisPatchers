@@ -1,0 +1,11 @@
+{
+  "Nickname": "Clarify",
+  "Visibility": "Visible",
+  "OneLineDescription": "Applies some Clarity settings to Weathers, Image Spaces and Lighting Templates",
+  "LongDescription": "Applies some Clarity settings to Weathers, Image Spaces and Lighting Templates.",
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": [],
+  "TargetedReleases": [
+    "Fallout4"
+  ]
+}
